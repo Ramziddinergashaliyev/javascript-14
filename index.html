@@ -47,19 +47,44 @@
           <span></span>
           <span></span>
         </button>
-        <div>
+        <div class="header__btns">
+          <input placeholder="Search..." class="input__select" type="text" />
+          <img class="header__img__icon" src="./images/korzinka.png" alt="" />
           <li class="header__item">
-            <a class="loginBtn">Login</a>
+            <button style="width: 120px" class="loginBtn">Login</button>
           </li>
         </div>
       </nav>
     </header>
 
     <main>
-      <section class="products container" id="hero">
+      <section class="home container" id="hero">
+        <div class="home__card">
+          <div class="home__left">
+            <p class="home__left__text">Welcome to GreenShop</p>
+            <h1 class="home__left__title">
+              Let’s Make a Better <span>Planet</span>
+            </h1>
+            <p class="home__left__desc">
+              We are an online plant shop offering a wide range of cheap and
+              trendy plants. Use our plants to create an unique Urban Jungle.
+              Order your favorite plants!
+            </p>
+            <button class="home__left__btn">Shop Now</button>
+          </div>
+          <div class="home__right">
+            <img src="./images/header-photo.png" alt="" />
+          </div>
+        </div>
+      </section>
+      <section class="products container">
+        <select class="select__products" name="" id="">
+          <option value="all">All</option>
+        </select>
         <div class="products__cards"></div>
         <div class="loading"></div>
         <div class="form__card">
+          <span class="form__delete">X</span>
           <div class="form__card__info">
             <button type="submit" class="login__btn">Login</button>
             <button type="submit" class="register__btn">Register</button>
@@ -101,6 +126,80 @@
         <button class="seeMoreBtn">See more</button>
       </section>
     </main>
+
+    <footer class="footer container">
+      <div class="footer__cards">
+        <div class="footer__card__top">
+          <div>
+            <img src="./images/home/logo.svg" alt="" />
+          </div>
+          <div class="footer__bottom__card">
+            <img src="./images/Location.png" alt="" />
+            <div>
+              <p class="footer__bottom__title">
+                70 West Buckingham Ave. Farmingdale, NY 11735
+              </p>
+            </div>
+          </div>
+          <div class="footer__bottom__card">
+            <img src="./images/Message.png" alt="" />
+            <div>
+              <p class="footer__bottom__title">contact@greenshop.com</p>
+            </div>
+          </div>
+          <div class="footer__bottom__card">
+            <img src="./images/Calling.png" alt="" />
+            <div>
+              <p class="footer__bottom__title">+88 01911 717 490</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer__card__bottom">
+          <div>
+            <h1 class="footer__title">My Account</h1>
+            <ul class="footer__item">
+              <li class="footer__list">My Account</li>
+              <li class="footer__list">Our stores</li>
+              <li class="footer__list">Contact us</li>
+              <li class="footer__list">Career</li>
+              <li class="footer__list">Specials</li>
+            </ul>
+          </div>
+          <div>
+            <h1 class="footer__title">Help & Guide</h1>
+            <ul class="footer__item">
+              <li class="footer__list">Help Center</li>
+              <li class="footer__list">How to Buy</li>
+              <li class="footer__list">Shipping & Delivery</li>
+              <li class="footer__list">Product Policy</li>
+              <li class="footer__list">How to Return</li>
+            </ul>
+          </div>
+          <div>
+            <h1 class="footer__title">Categories</h1>
+            <ul class="footer__item">
+              <li class="footer__list">House Plant</li>
+              <li class="footer__list">Potter Plants</li>
+              <li class="footer__list">Seeds</li>
+              <li class="footer__list">Small Plants</li>
+              <li class="footer__list">Accessories</li>
+            </ul>
+          </div>
+          <div>
+            <h1 class="footer__title">Social Media</h1>
+            <div>
+              <p>We accept</p>
+              <img src="./images/image 16.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <br />
+      <hr />
+      <p class="footer__title__bottom">
+        © 2021 GreenShop. All Rights Reserved.
+      </p>
+    </footer>
   </body>
 
   <script src="./js/main.js"></script>

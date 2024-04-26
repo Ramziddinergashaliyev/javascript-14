@@ -6,6 +6,9 @@ const seeMoreBtn = document.querySelector(".seeMoreBtn");
 const form = document.querySelector(".form");
 const products = document.querySelector(".products");
 const formBtndelete = document.querySelector(".formBtndelete");
+const selectProducts = document.querySelector(".select__products");
+const inputSelect = document.querySelector(".input__select");
+const formDelete = document.querySelector(".form__delete");
 
 const username = document.querySelector(".username");
 const password = document.querySelector(".password");
@@ -107,6 +110,10 @@ loginBtn.addEventListener("click", () => {
   formCard.style.display = "block";
 });
 
+formDelete.addEventListener("click", () => {
+  formCard.style.display = "none";
+});
+
 products.addEventListener("click", (e) => {
   if (e.target.className === "card__img") {
     let id = e.target.dataset.id;
@@ -126,3 +133,61 @@ function chekAdmin() {
 }
 
 chekAdmin();
+
+async function optionApi(url) {
+  let data = await fetch(`${url}/products/categories`);
+  data
+    .json()
+    .then((res) => mapSelectData(res))
+    .catch((err) => console.log(err));
+}
+optionApi(API_URL);
+
+function mapSelectData(option) {
+  let optionCard = ` <option class="" value="all">All</option>`;
+  option.forEach((categ) => {
+    optionCard += `
+     <option class="" value=${categ}>${categ}</option>
+    `;
+  });
+  selectProducts.innerHTML = optionCard;
+}
+
+async function fetchProducts(api, option, searchValue) {
+  let url = "";
+  if (option === "all") {
+    if (searchValue) {
+      url = `${api}/products/search/?q=${searchValue}`;
+    } else {
+      url = `${api}/products`;
+    }
+  } else {
+    url = `${api}/products/category/${option}`;
+  }
+  console.log(url);
+
+  const data = await fetch(url, {
+    method: "GET",
+  });
+
+  data
+    .json()
+    .then((res) => mapProductData(res))
+    .catch((err) => console.log(err));
+}
+
+fetchProducts(API_URL, "all");
+
+selectProducts.addEventListener("change", (e) => {
+  let optionValue = e.target.value;
+  console.log(optionValue);
+  fetchProducts(API_URL, optionValue);
+});
+
+inputSelect.addEventListener("input", (e) => {
+  let value = e.target.value.trim();
+  if (value) {
+    fetchProducts(API_URL, "all", value);
+    selectProducts.value = "all";
+  }
+});
